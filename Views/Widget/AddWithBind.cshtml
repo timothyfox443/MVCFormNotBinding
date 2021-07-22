@@ -1,0 +1,54 @@
+﻿@model Widget
+@{
+    ViewData["Title"] = "AddWithBind";
+}
+
+<h1>AddWithBind</h1>
+
+@if (ViewData["isAddedYesBind"] == null)
+{
+<form method="post">
+    <div class="form-group">
+        <label asp-for="objName"></label>
+        <input asp-for="objName" class="form-control" />
+        <small id="productNameHelp" class="form-text text-muted">Please enter the name of the product.</small>
+        <span asp-validation-for="objName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="objDesc"></label>
+        <input asp-for="objDesc" class="form-control" />
+        <small id="objdeschelp" class="form-text text-muted">Please enter a brief description of the product.</small>
+        <span asp-validation-for="objDesc"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="objWeight"></label>
+        <input asp-for="objWeight" class="form-control" />
+        <small id="objweighthelp" class="form-text text-muted">Please enter the full weight of the product.</small>
+        <span asp-validation-for="objWeight"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="objUnitCost"></label>
+        <input asp-for="objUnitCost" class="form-control" />
+        <small id="unitcosthelp" class="form-text text-muted">Please enter the actual unit purchase cost.</small>
+        <span asp-validation-for="objUnitCost"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="objSalePrice"></label>
+        <input asp-for="objSalePrice" class="form-control" />
+        <small id="unitpricehelp" class="form-text text-muted">Please enter the unit customer sale price.</small>
+        <span asp-validation-for="objSalePrice"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Product</button>
+
+</form>
+}
+else
+{
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>@ViewData["isAddedYesBind"]</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
